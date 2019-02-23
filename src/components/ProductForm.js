@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 class ProductForm extends React.Component {
   render() {
     return (
-      <Form>
+      <Form className="shadow p-4 border rounded mb-5">
         <FormGroup>
           <Label for="productName">Name</Label>
           <Input type="text" name="name" id="productName" />

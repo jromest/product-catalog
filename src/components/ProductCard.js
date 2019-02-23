@@ -3,7 +3,7 @@ import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
 
 const ProductCard = props => (
   <div>
-    <Card>
+    <Card className="shadow-sm">
       <CardImg
         top
         width="100%"
