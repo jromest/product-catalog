@@ -10,7 +10,9 @@ const Home = props => (
     {({ products }) => (
       <Layout location={props.location}>
         <Container className="py-4" tag="main" role="main">
-          <ProductCarousel />
+          <ProductCarousel
+            featuredProducts={products.filter(product => product.isFeatured)}
+          />
           <Row className="pt-3">
             {products.map((product, index) => (
               <Col key={index} className="py-4" sm={12} md={6} lg={4}>
