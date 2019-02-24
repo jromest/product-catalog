@@ -9,15 +9,15 @@ class ProductList extends React.Component {
       onEditProduct: null,
     };
 
-    this.onEditHandle = this.onEditHandle.bind(this);
+    this.onEdit = this.onEdit.bind(this);
   }
 
-  onEditHandle(product) {
+  onEdit(product) {
     this.setState({ onEditProduct: product });
   }
 
   render() {
-    const { products } = this.props;
+    const { products, onDelete } = this.props;
     const { onEditProduct } = this.state;
 
     return (
@@ -44,11 +44,13 @@ class ProductList extends React.Component {
                   <Button
                     className="mr-3"
                     color="primary"
-                    onClick={() => this.onEditHandle(product)}
+                    onClick={() => this.onEdit(product)}
                   >
                     Edit
                   </Button>
-                  <Button color="danger">Delete</Button>
+                  <Button color="danger" onClick={() => onDelete(product)}>
+                    Delete
+                  </Button>
                 </td>
               </tr>
             ))}

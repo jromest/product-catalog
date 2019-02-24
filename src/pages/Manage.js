@@ -6,11 +6,11 @@ import ProductList from '../components/ProductList';
 
 const Manage = props => (
   <ProductContextConsumer>
-    {({ products }) => (
+    {({ products, actions }) => (
       <Layout location={props.location}>
         <Container className="py-4" tag="main" role="main">
           <h1 className="mb-5">Product Management</h1>
-          <ProductList products={products} />
+          <ProductList products={products} onDelete={actions.delete} />
         </Container>
       </Layout>
     )}

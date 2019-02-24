@@ -32,10 +32,18 @@ class ProductContextProvider extends React.Component {
     this.state = {
       products: [],
     };
+
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
     this.setState({ products: defaultState });
+  }
+
+  handleDelete(product) {
+    const { products } = this.state;
+    products.splice(products.indexOf(product), 1);
+    this.setState({ products });
   }
 
   render() {
@@ -46,7 +54,7 @@ class ProductContextProvider extends React.Component {
       <ProductContext.Provider
         value={{
           products,
-          actions: null,
+          actions: { delete: this.handleDelete },
         }}
       >
         {children}
