@@ -5,7 +5,7 @@ const ProductCard = props => {
   const { name, description, imageUrl, dateCreated } = props.product;
   return (
     <div>
-      <Card className="shadow-sm">
+      <Card className="shadow">
         <CardImg top width="100%" src={imageUrl} alt={name} />
         <CardBody>
           <CardTitle>{name}</CardTitle>

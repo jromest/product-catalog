@@ -70,7 +70,7 @@ class ProductForm extends React.Component {
     const { name, description, imageUrl, isFeatured } = this.state;
 
     return (
-      <Form className="shadow p-4 border rounded mb-5">
+      <Form className="shadow-sm p-4 border rounded mb-5">
         <FormGroup>
           <Label for="productName">Name</Label>
           <Input
