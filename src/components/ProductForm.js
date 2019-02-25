@@ -43,8 +43,14 @@ class ProductForm extends React.Component {
   }
 
   handleSubmit() {
-    this.props.onAdd(this.state);
-    this.handleCancel();
+    const { id, name, description, imageUrl, isFeatured } = this.state;
+
+    if (name !== '' && imageUrl !== '') {
+      this.props.onAdd({ id, name, description, imageUrl, isFeatured });
+      this.handleCancel();
+    } else {
+      alert('Name and photo URL are required fields.');
+    }
   }
 
   handleCancel() {
@@ -110,7 +116,7 @@ class ProductForm extends React.Component {
           </Label>
         </FormGroup>
 
-        <Button color="primary" onClick={this.handleSubmit}>
+        <Button className="mr-3" color="primary" onClick={this.handleSubmit}>
           {products !== null ? 'Update' : 'Add'}
         </Button>
         <Button color="secondary" onClick={this.handleCancel}>
