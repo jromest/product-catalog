@@ -41,7 +41,11 @@ class Manage extends React.Component {
                     onUpdate={this.onUpdate}
                   />
                   <ProductList
-                    products={products}
+                    products={products.sort(
+                      (first, second) =>
+                        new Date(first.dateCreated) -
+                        new Date(second.dateCreated)
+                    )}
                     onEdit={this.onEdit}
                     onDelete={actions.delete}
                   />
