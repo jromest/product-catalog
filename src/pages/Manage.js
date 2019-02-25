@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'reactstrap';
+import { Container, Spinner } from 'reactstrap';
 import { ProductContextConsumer } from '../context/ProductContext';
 import Layout from '../components/Layout';
 import ProductForm from '../components/ProductForm';
@@ -32,17 +32,27 @@ class Manage extends React.Component {
         {({ products, actions }) => (
           <Layout location={this.props.location}>
             <Container className="py-4" tag="main" role="main">
-              <h1 className="mb-5">Product Management</h1>
-              <ProductForm
-                products={onEditProduct}
-                onAdd={actions.add}
-                onUpdate={this.onUpdate}
-              />
-              <ProductList
-                products={products}
-                onEdit={this.onEdit}
-                onDelete={actions.delete}
-              />
+              {products ? (
+                <React.Fragment>
+                  <h1 className="mb-5">Product Management</h1>
+                  <ProductForm
+                    products={onEditProduct}
+                    onAdd={actions.add}
+                    onUpdate={this.onUpdate}
+                  />
+                  <ProductList
+                    products={products}
+                    onEdit={this.onEdit}
+                    onDelete={actions.delete}
+                  />
+                </React.Fragment>
+              ) : (
+                <Spinner
+                  className="d-block mx-auto mt-5"
+                  color="primary"
+                  style={{ width: '3rem', height: '3rem' }}
+                />
+              )}
             </Container>
           </Layout>
         )}
