@@ -5,7 +5,7 @@ const defaultState = [
     id: 1,
     name: 'Product One',
     description: 'Product one description',
-    imageUrl: 'https://picsum.photos/800/400/?image=946',
+    imageUrl: 'https://picsum.photos/800/400/?image=234',
     isFeatured: true,
     dateCreated: '08/19/2019',
   },
