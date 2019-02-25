@@ -12,7 +12,6 @@ const ProductCard = props => {
           <CardText>{description}</CardText>
           <CardText>
             <small className="text-muted">
-              Date created{' '}
               {new Date(dateCreated).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',

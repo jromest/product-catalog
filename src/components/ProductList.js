@@ -8,7 +8,8 @@ const ProductList = ({ products, onEdit, onDelete }) => (
         <th>Image</th>
         <th>Name</th>
         <th>Description</th>
-        <th>Action</th>
+        <th>Date Created</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -19,9 +20,16 @@ const ProductList = ({ products, onEdit, onDelete }) => (
           </td>
           <td className="w-25">{product.name}</td>
           <td className="w-25">{product.description}</td>
+          <td className="w-25">
+            {new Date(product.dateCreated).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </td>
           <td className="w-auto">
             <Button
-              className="mr-3"
+              className="mb-3 w-100"
               color="primary"
               onClick={() => onEdit(product)}
             >
