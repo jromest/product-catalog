@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
 
 const ProductCard = props => {
-  const { name, description, imageUrl } = props.product;
+  const { name, description, imageUrl, dateCreated } = props.product;
   return (
     <div>
       <Card className="shadow-sm">
@@ -11,7 +11,14 @@ const ProductCard = props => {
           <CardTitle>{name}</CardTitle>
           <CardText>{description}</CardText>
           <CardText>
-            <small className="text-muted">Last updated 3 mins ago</small>
+            <small className="text-muted">
+              Date created{' '}
+              {new Date(dateCreated).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </small>
           </CardText>
         </CardBody>
       </Card>

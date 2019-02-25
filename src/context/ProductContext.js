@@ -8,6 +8,7 @@ const defaultState = [
     imageUrl:
       'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
     isFeatured: true,
+    dateCreated: '08/19/2019',
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const defaultState = [
     imageUrl:
       'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
     isFeatured: false,
+    dateCreated: '02/23/2019',
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ const defaultState = [
     imageUrl:
       'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
     isFeatured: true,
+    dateCreated: '05/04/2019',
   },
 ];
 
