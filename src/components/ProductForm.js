@@ -13,6 +13,7 @@ class ProductForm extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -42,10 +43,12 @@ class ProductForm extends React.Component {
   }
 
   handleSubmit() {
-    const { onAdd, onUpdate } = this.props;
+    this.props.onAdd(this.state);
+    this.handleCancel();
+  }
 
-    onAdd(this.state);
-    onUpdate();
+  handleCancel() {
+    this.props.onUpdate();
 
     this.setState({
       id: null,
@@ -57,6 +60,7 @@ class ProductForm extends React.Component {
   }
 
   render() {
+    const { products } = this.props;
     const { name, description, imageUrl, isFeatured } = this.state;
 
     return (
@@ -107,7 +111,10 @@ class ProductForm extends React.Component {
         </FormGroup>
 
         <Button color="primary" onClick={this.handleSubmit}>
-          Save/Update
+          {products !== null ? 'Update' : 'Add'}
+        </Button>
+        <Button color="secondary" onClick={this.handleCancel}>
+          Cancel
         </Button>
       </Form>
     );
