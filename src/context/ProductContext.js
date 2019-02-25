@@ -27,6 +27,9 @@ const defaultState = [
   },
 ];
 
+const setData = data =>
+  window.localStorage.setItem('data', JSON.stringify(data));
+
 const ProductContext = React.createContext();
 
 class ProductContextProvider extends React.Component {
@@ -42,7 +45,16 @@ class ProductContextProvider extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ products: defaultState });
+    if (window.localStorage.getItem('data') === null) {
+      setData(defaultState);
+    }
+
+    const data = window.localStorage.getItem('data');
+    this.setState({ products: JSON.parse(data) });
+  }
+
+  componentWillUnmount() {
+    window.localStorage.clear();
   }
 
   handleAdd(newProduct) {
@@ -55,6 +67,8 @@ class ProductContextProvider extends React.Component {
 
       products.push(newProduct);
       this.setState({ products });
+
+      setData(products);
     }
   }
 
@@ -62,19 +76,26 @@ class ProductContextProvider extends React.Component {
     const { products } = this.state;
     products.splice(products.indexOf(product), 1);
     this.setState({ products });
+    setData(products);
   }
 
   updateItem(id, itemAttributes) {
-    var index = this.state.products.findIndex(x => x.id === id);
+    const { products } = this.state;
+    const index = this.state.products.findIndex(x => x.id === id);
+
+    const updatedProducts = [
+      ...products.slice(0, index),
+      Object.assign({}, products[index], itemAttributes),
+      ...products.slice(index + 1),
+    ];
+
     if (index === -1) console.log('Invalid');
     else
-      this.setState(prevState => ({
-        products: [
-          ...prevState.products.slice(0, index),
-          Object.assign({}, prevState.products[index], itemAttributes),
-          ...prevState.products.slice(index + 1),
-        ],
-      }));
+      this.setState({
+        products: updatedProducts,
+      });
+
+    setData(updatedProducts);
   }
 
   render() {
