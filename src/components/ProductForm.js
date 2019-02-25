@@ -16,8 +16,8 @@ class ProductForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  static getDerivedStateFromProps(props) {
-    if (props.products !== null) {
+  static getDerivedStateFromProps(props, state) {
+    if (props.products !== null && props.products.id !== state.id) {
       const { id, name, description, imageUrl, isFeatured } = props.products;
       return {
         id,
