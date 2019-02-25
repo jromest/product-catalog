@@ -40,6 +40,12 @@ class ProductContextProvider extends React.Component {
     this.setState({ products: defaultState });
   }
 
+  handleAdd(newProduct) {
+    const { products } = this.state;
+    products.push(newProduct);
+    this.setState({ products });
+  }
+
   handleDelete(product) {
     const { products } = this.state;
     products.splice(products.indexOf(product), 1);
