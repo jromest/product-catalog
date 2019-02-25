@@ -14,8 +14,8 @@ const Home = props => (
             featuredProducts={products.filter(product => product.isFeatured)}
           />
           <Row className="pt-3">
-            {products.map((product, index) => (
-              <Col key={index} className="py-4" sm={12} md={6} lg={4}>
+            {products.map(product => (
+              <Col key={product.id} className="py-4" sm={12} md={6} lg={4}>
                 <ProductCard product={product} />
               </Col>
             ))}

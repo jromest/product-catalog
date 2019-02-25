@@ -12,8 +12,8 @@ const ProductList = ({ products, onEdit, onDelete }) => (
       </tr>
     </thead>
     <tbody>
-      {products.map((product, index) => (
-        <tr key={index}>
+      {products.map(product => (
+        <tr key={product.id}>
           <td className="w-25">
             <img src={product.imageUrl} alt={product.name} />
           </td>

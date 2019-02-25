@@ -2,6 +2,7 @@ import React from 'react';
 
 const defaultState = [
   {
+    id: 1,
     name: 'Product One',
     description: 'Product one description',
     imageUrl:
@@ -9,6 +10,7 @@ const defaultState = [
     isFeatured: true,
   },
   {
+    id: 2,
     name: 'Product Two',
     description: 'Product two description',
     imageUrl:
@@ -16,6 +18,7 @@ const defaultState = [
     isFeatured: false,
   },
   {
+    id: 3,
     name: 'Product Three',
     description: 'Product three description',
     imageUrl:

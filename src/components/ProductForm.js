@@ -5,6 +5,7 @@ class ProductForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: null,
       name: '',
       description: '',
       imageUrl: '',
@@ -17,8 +18,9 @@ class ProductForm extends React.Component {
 
   static getDerivedStateFromProps(props) {
     if (props.products !== null) {
-      const { name, description, imageUrl, isFeatured } = props.products;
+      const { id, name, description, imageUrl, isFeatured } = props.products;
       return {
+        id,
         name,
         description,
         imageUrl,
@@ -42,6 +44,7 @@ class ProductForm extends React.Component {
   handleSubmit() {
     this.props.onAdd(this.state);
     this.setState({
+      id: null,
       name: '',
       description: '',
       imageUrl: '',

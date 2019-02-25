@@ -56,12 +56,12 @@ class ProductCarousel extends Component {
     const { activeIndex } = this.state;
     const { featuredProducts } = this.props;
 
-    const slides = featuredProducts.map((item, index) => {
+    const slides = featuredProducts.map(item => {
       return (
         <CarouselItem
           onExiting={this.onExiting}
           onExited={this.onExited}
-          key={index}
+          key={item.id}
         >
           <img width="100%" src={item.imageUrl} alt={item.name} />
           <CarouselCaption
