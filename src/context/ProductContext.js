@@ -5,8 +5,7 @@ const defaultState = [
     id: 1,
     name: 'Product One',
     description: 'Product one description',
-    imageUrl:
-      'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
+    imageUrl: 'https://picsum.photos/800/400/?image=946',
     isFeatured: true,
     dateCreated: '08/19/2019',
   },
@@ -14,8 +13,7 @@ const defaultState = [
     id: 2,
     name: 'Product Two',
     description: 'Product two description',
-    imageUrl:
-      'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
+    imageUrl: 'https://picsum.photos/800/400/?image=655',
     isFeatured: false,
     dateCreated: '02/23/2019',
   },
@@ -23,8 +21,7 @@ const defaultState = [
     id: 3,
     name: 'Product Three',
     description: 'Product three description',
-    imageUrl:
-      'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
+    imageUrl: 'https://picsum.photos/800/400/?image=180',
     isFeatured: true,
     dateCreated: '05/04/2019',
   },
