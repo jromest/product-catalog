@@ -50,6 +50,9 @@ class ProductContextProvider extends React.Component {
     if (products.find(product => newProduct.id === product.id)) {
       this.updateItem(newProduct.id, newProduct);
     } else {
+      // this not assure that id is unique
+      newProduct.id = Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000;
+
       products.push(newProduct);
       this.setState({ products });
     }
