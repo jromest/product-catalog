@@ -38,6 +38,7 @@ class ProductContextProvider extends React.Component {
 
     this.handleAdd = this.handleAdd.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.updateItem = this.updateItem.bind(this);
   }
 
   componentDidMount() {
@@ -46,14 +47,31 @@ class ProductContextProvider extends React.Component {
 
   handleAdd(newProduct) {
     const { products } = this.state;
-    products.push(newProduct);
-    this.setState({ products });
+    if (products.find(product => newProduct.id === product.id)) {
+      this.updateItem(newProduct.id, newProduct);
+    } else {
+      products.push(newProduct);
+      this.setState({ products });
+    }
   }
 
   handleDelete(product) {
     const { products } = this.state;
     products.splice(products.indexOf(product), 1);
     this.setState({ products });
+  }
+
+  updateItem(id, itemAttributes) {
+    var index = this.state.products.findIndex(x => x.id === id);
+    if (index === -1) console.log('Invalid');
+    else
+      this.setState(prevState => ({
+        products: [
+          ...prevState.products.slice(0, index),
+          Object.assign({}, prevState.products[index], itemAttributes),
+          ...prevState.products.slice(index + 1),
+        ],
+      }));
   }
 
   render() {

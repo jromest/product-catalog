@@ -42,7 +42,11 @@ class ProductForm extends React.Component {
   }
 
   handleSubmit() {
-    this.props.onAdd(this.state);
+    const { onAdd, onUpdate } = this.props;
+
+    onAdd(this.state);
+    onUpdate();
+
     this.setState({
       id: null,
       name: '',

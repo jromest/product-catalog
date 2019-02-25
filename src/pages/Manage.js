@@ -13,10 +13,15 @@ class Manage extends React.Component {
     };
 
     this.onEdit = this.onEdit.bind(this);
+    this.onUpdate = this.onUpdate.bind(this);
   }
 
   onEdit(product) {
     this.setState({ onEditProduct: product });
+  }
+
+  onUpdate() {
+    this.setState({ onEditProduct: null });
   }
 
   render() {
@@ -28,7 +33,11 @@ class Manage extends React.Component {
           <Layout location={this.props.location}>
             <Container className="py-4" tag="main" role="main">
               <h1 className="mb-5">Product Management</h1>
-              <ProductForm products={onEditProduct} onAdd={actions.add} />
+              <ProductForm
+                products={onEditProduct}
+                onAdd={actions.add}
+                onUpdate={this.onUpdate}
+              />
               <ProductList
                 products={products}
                 onEdit={this.onEdit}
