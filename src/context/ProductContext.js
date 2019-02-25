@@ -33,6 +33,7 @@ class ProductContextProvider extends React.Component {
       products: [],
     };
 
+    this.handleAdd = this.handleAdd.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -60,7 +61,10 @@ class ProductContextProvider extends React.Component {
       <ProductContext.Provider
         value={{
           products,
-          actions: { delete: this.handleDelete },
+          actions: {
+            add: this.handleAdd,
+            delete: this.handleDelete,
+          },
         }}
       >
         {children}

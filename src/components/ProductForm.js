@@ -40,7 +40,13 @@ class ProductForm extends React.Component {
   }
 
   handleSubmit() {
-    console.log(this.state);
+    this.props.onAdd(this.state);
+    this.setState({
+      name: '',
+      description: '',
+      imageUrl: '',
+      isFeatured: false,
+    });
   }
 
   render() {

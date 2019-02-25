@@ -28,7 +28,7 @@ class Manage extends React.Component {
           <Layout location={this.props.location}>
             <Container className="py-4" tag="main" role="main">
               <h1 className="mb-5">Product Management</h1>
-              <ProductForm products={onEditProduct} />
+              <ProductForm products={onEditProduct} onAdd={actions.add} />
               <ProductList
                 products={products}
                 onEdit={this.onEdit}
