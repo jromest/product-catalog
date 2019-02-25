@@ -15,7 +15,7 @@ const ProductList = ({ products, onEdit, onDelete }) => (
       {products.map(product => (
         <tr key={product.id}>
           <td className="w-25">
-            <img src={product.imageUrl} alt={product.name} />
+            <img className="w-100" src={product.imageUrl} alt={product.name} />
           </td>
           <td className="w-25">{product.name}</td>
           <td className="w-25">{product.description}</td>
